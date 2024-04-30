@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction Monitoring Dashboard - Tableau Dashboards</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #44a08d, #093637);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-image: url('background.jpg'); /* Update the path to your image */
+            background-size: cover;
+            background-position: center;
+            overflow-x: hidden; /* Prevent horizontal scrollbar when sidebar is open */
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            animation: slideDown 0.5s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 36px;
+            font-weight: bold;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        main {
+            display: flex;
+            flex-direction: column; /* Change the flex direction to column */
+            margin-top: 80px;
+            transition: margin-left 0.5s;
+        }
+
+        .tableauPlaceholder {
+            max-height: 1000px; /* Set a maximum height for the dashboards */
+            margin-bottom: 20px; /* Add some space between dashboards */
+        }
+        nav {
+            background-color: #f4f4f4;
+            padding: 20px;
+            min-width: 170px;
+            border-radius: 10px;
+            animation: slideRight 0.5s ease;
+            transition: transform 0.5s ease; /* Added transition property for sidebar */
+            transform: translateX(-100%);
+            position: fixed;
+            height: 100%;
+            overflow-y: auto; /* Enable scrolling for sidebar content */
+            left: 0px; /* Move the sidebar to the left */
+            top: 80px; /* Align the top of the sidebar below the header */
+        }
+
+        @keyframes slideRight {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        nav a {
+            display: block;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: #333;
+            padding: 8px;
+            border-radius: 5px;
+            background-color: #ddd;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #bbb;
+        }
+
+        /* Added class to body for opening and closing sidebar */
+        body.open-sidebar main {
+            margin-left: 200px;
+        }
+
+        body.open-sidebar nav {
+            transform: translateX(0);
+        }
+
+        button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1001;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #29788e;
+        }
+
+    </style>
+</head>
+<body class="open-sidebar">
+    <header>
+        <h1>Tableau Dashboards</h1>
+    </header>
+
+    <button onclick="toggleSidebar()">Menu</button>
+
+    <main>
+        <nav>
+            <a href="graphs.html">Graphs</a>
+            <a href="dashboard.html">Dashboards</a>
+            <a href="home.html">Home</a>
+        </nav>
+        <div class='tableauPlaceholder' id='viz1700307063084' style='position: relative'><noscript><a href='#'><img alt='file name ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;da&#47;dashboard11_17003070397400&#47;filename&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='dashboard11_17003070397400&#47;filename' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;da&#47;dashboard11_17003070397400&#47;filename&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1700307063084');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='1477px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script><br>
+        <div class='tableauPlaceholder' id='viz1700302070401' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;SI&#47;SIH2_17003012646460&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='SIH2_17003012646460&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;SI&#47;SIH2_17003012646460&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1700302070401');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='1527px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>  
+      </main>
+    <script>
+        function toggleSidebar() {
+            document.body.classList.toggle('open-sidebar');
+        }
+    </script>
+</body>
+</html>

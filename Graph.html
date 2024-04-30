@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction Monitoring Dashboard - Graphs</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #44a08d, #093637);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-image: url('background.jpg'); /* Update the path to your image */
+            background-size: cover;
+            background-position: center;
+            overflow-x: hidden; /* Prevent horizontal scrollbar when sidebar is open */
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            animation: slideDown 0.5s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 36px;
+            font-weight: bold;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        main {
+            display: flex;
+            flex: 1;
+            margin-top: 80px;
+            transition: margin-left 0.5s; /* Added transition property for main content when sidebar is toggled */
+        }
+
+        nav {
+            background-color: #f4f4f4;
+            padding: 20px;
+            min-width: 200px;
+            border-radius: 10px;
+            animation: slideRight 0.5s ease;
+            transition: transform 0.5s ease; /* Added transition property for sidebar */
+            transform: translateX(-100%);
+            position: fixed;
+            height: 100%;
+            overflow-y: auto; /* Enable scrolling for sidebar content */
+            left: 0; /* Move the sidebar to the left */
+            top: 80px; /* Align the top of the sidebar below the header */
+        }
+
+        @keyframes slideRight {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        nav a {
+            display: block;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: #333;
+            padding: 8px;
+            border-radius: 5px;
+            background-color: #ddd;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #bbb;
+        }
+
+        /* Added class to body for opening and closing sidebar */
+        body.open-sidebar main {
+            margin-left: 200px;
+        }
+
+        body.open-sidebar nav {
+            transform: translateX(0);
+        }
+
+        button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1001;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #29788e;
+        }
+    </style>
+</head>
+<body class="open-sidebar">
+    <header>
+        <h1>Graphs</h1>
+    </header>
+
+    <button onclick="toggleSidebar()">Menu</button>
+
+    <main>
+        <nav>
+            <a href="dashboard.html">Dash Boards</a>
+            <a href="tableau_dashboards.html">Tableau Dashboards</a>
+            <a href="home.html">Home</a>
+        </nav>
+        <div id="graph-container">
+            <img src="graph1.png" alt="Graph 1">
+            <link src = "https://gzvtmqq6j19.app.projectmanager.com/project/plan/C">
+        </div>
+    </main>
+
+    <script>
+        function toggleSidebar() {
+            document.body.classList.toggle('open-sidebar');
+        }
+    </script>
+</body>
+</html>
